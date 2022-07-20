@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import {HashRouter, Route, Routes, Navigate} from "react-router-dom";
 import Register from "./Components/Register/Register";
 import NavBar from "./Components/NavBar/NavBar";
 import SignIn from "./Components/SignIn/SignIn";
@@ -32,14 +32,14 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <HashRouter>
         {this.state.token ? "" : <NavBar />}
         <Routes>
             <Route path="/" element={this.state.token ? <Exams token={this.state.token} removeToken={this.removeToken} /> : <Navigate to="/SignIn" />} />
             <Route path="/register" element={this.state.token ? <Navigate to="/" /> : <Register setToken={this.setToken} />} />
             <Route path="/signin" element={this.state.token ? <Navigate to="/" /> : <SignIn setToken={this.setToken} />} />
         </Routes>
-      </Router>
+      </HashRouter>
     );
   }
 }
