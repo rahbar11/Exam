@@ -1,0 +1,14 @@
+.bg-all-section {
+  background: linear-gradient(45deg, hsl(var(--color-secondary) / 80%), hsl(var(--color-secondary) / 80%) ) !important;
+  --switch: calc((var(--secondary-color-l) - var(--contrastThreshold)) * -100);
+}
+.top_featured_bg img {
+  background: linear-gradient(45deg, hsl(var(--color-secondary) / 80%), hsl(var(--color-secondary) / 80%) ) !important;
+  --switch: calc((var(--secondary-color-l) - var(--contrastThreshold)) * -100);
+}
+.userProfiles {
+  background-color:white;
+}
+.userProfiles table thead tr th  {
+  color:#595959 !important;
+}
