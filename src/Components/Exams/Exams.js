@@ -29,7 +29,7 @@ class Exam extends Component {
         const {examIndex, exams} = this.state
         if (examIndex !== -1) {
             const selectedExam = exams[examIndex]
-            axios.post("https://exam-panel.herokuapp.com/api/questions", {examid: selectedExam._id}, {headers:{Authorization: this.props.token}})
+            axios.post("https://exam-management-1h1y.onrender.com/api/questions", {examid: selectedExam._id}, {headers:{Authorization: this.props.token}})
                 .then(res => {
                     const mainExam = this.props.token
                     localStorage.setItem("questions", JSON.stringify(res.data));
@@ -48,7 +48,7 @@ class Exam extends Component {
     confirmFinish = (confirm) => {
         const {questions, currentExam} = this.state
         if (confirm) {
-            axios.post("https://exam-panel.herokuapp.com/api/finish", {questions, examid: currentExam._id}, {headers:{Authorization: this.props.token}})
+            axios.post("https://exam-management-1h1y.onrender.com/api/finish", {questions, examid: currentExam._id}, {headers:{Authorization: this.props.token}})
                    .then(res => {
                        if (res.data === "success") {
                          this.setState({mainExam: "", result: this.props.token})
@@ -77,7 +77,7 @@ class Exam extends Component {
         const mainExam = localStorage.getItem("mainExam");
         const result = localStorage.getItem("result");
         this.setState({mainExam, result})
-        axios.post("https://exam-panel.herokuapp.com/api/exams", {}, {headers:{Authorization: this.props.token}})
+        axios.post("https://exam-management-1h1y.onrender.com/api/exams", {}, {headers:{Authorization: this.props.token}})
             .then(res => this.setState({exams: res.data.exams, examsDone: res.data.examsDone}))
             .catch(() => localStorage.removeItem("token"));
     }

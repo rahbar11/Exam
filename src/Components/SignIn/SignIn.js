@@ -21,7 +21,7 @@ class SignIn extends Component {
     onSignIn = () => {
         if (isEmail(this.state.email)) {
             this.setState({isEmail: true})
-            axios.post("https://exam-panel.herokuapp.com/student/signin", this.state)
+            axios.post("https://exam-management-1h1y.onrender.com/student/signin", this.state)
                 .then(res => {
                     this.props.setToken(res.data.token);
                 })

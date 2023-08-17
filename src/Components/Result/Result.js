@@ -18,7 +18,7 @@ class Result extends Component {
     }
 
     componentDidMount() {
-        axios.post("https://exam-panel.herokuapp.com/api/result", {questions: this.props.questions, examid: this.props.currentExam._id}, {headers:{Authorization: this.props.token}})
+        axios.post("https://exam-management-1h1y.onrender.com/api/result", {questions: this.props.questions, examid: this.props.currentExam._id}, {headers:{Authorization: this.props.token}})
         .then(res => this.setState({questions: res.data}))
 
     }

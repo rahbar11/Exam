@@ -23,7 +23,7 @@ class Register extends Component {
         if (isEmail(this.state.email)) {
             this.setState({isEmail: true})
             if (this.state.password && this.state.name) {
-                axios.post("https://exam-panel.herokuapp.com/student/register", this.state)
+                axios.post("https://exam-management-1h1y.onrender.com/student/register", this.state)
                     .then(res => {
                         this.props.setToken(res.data.token);
                     })
